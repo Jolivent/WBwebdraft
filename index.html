@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your profile · Profilr</title>
+    <meta name="description" content="Profilr knows you better than you know yourself.">
+    <meta name="author" content="Bovent Wu">
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts: Chakra Petch (text) + Share Tech Mono (system text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- PROTOTYPE: still to come: loading screen, animated accuracy bar, working cookie box and tracker (JavaScript) -->
+    <div id="wrapper">
+
+        <!-- HEADER: logo + main menu -->
+        <header class="site-header box">
+            <a class="logo" href="index.html">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#7C3AED"/>
+                            <stop offset="0.5" stop-color="#3B82F6"/>
+                            <stop offset="1" stop-color="#EC4899"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="32" height="32" rx="8" fill="url(#brand)"/>
+                    <path d="M5 16 C 9 9, 23 9, 27 16 C 23 23, 9 23, 5 16 Z" fill="#FFFFFF"/>
+                    <circle cx="16" cy="16" r="4.5" fill="#5B21B6"/>
+                </svg>
+                <span>Profilr</span>
+            </a>
+            <span class="signed-in">Signed in as: Bovent Wu</span>
+            <nav aria-label="Main menu">
+                <ul class="menu">
+                    <li><a href="index.html" aria-current="page">profile</a></li>
+                    <li><a href="interests.html">interests</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1>welcome message*</h1>
+                <p>website description*</p>
+            </section>
+
+            <!-- Profile card -->
+            <section class="box profile" aria-labelledby="profile-title">
+                <figure style="margin: 0">
+                    <img src="assets/profile-medic.jpg" alt="Profile picture: Funko Pop of the Medic from Team Fortress 2" width="360" height="360">
+                </figure>
+                <div>
+                    <p class="label">Your audience profile</p>
+                    <h2 id="profile-title">Bovent Wu</h2>
+                    <dl class="facts">
+                        <div><dt>Date of birth</dt><dd>October 27, 2005</dd></div>
+                        <div><dt>Location</dt><dd>Montr&eacute;al, Qu&eacute;bec, Canada</dd></div>
+                        <div><dt>Occupation</dt><dd>Student</dd></div>
+                        <div><dt>Personality</dt><dd>TBD</dd></div>
+                        <div><dt>Recent activity</dt><dd>Active now, on Profilr</dd></div>
+                        <div><dt>Most active</dt><dd>Late at night</dd></div>
+                    </dl>
+                    <!-- accuracy bar: static for now -->
+                    <p class="meter-label"><span>Profile accuracy</span><span>99%</span></p>
+                    <div class="meter-track"><div class="meter-fill" style="width: 99%"></div></div>
+                </div>
+            </section>
+
+            <!-- Corporate fluff -->
+            <section aria-labelledby="why-title">
+                <h2 id="why-title">Why Profilr?</h2>
+                <p class="intro">insert guy explaining on whiteboard gif*</p>
+
+                <div class="promises">
+                    <article class="box">
+                        <h3>Personal</h3>
+                        <p>...</p>
+                    </article>
+                    <article class="box">
+                        <h3>Predictive</h3>
+                        <p>...</p>
+                    </article>
+                    <article class="box">
+                        <h3>Persistent</h3>
+                        <p>...</p>
+                    </article>
+                </div>
+
+                <h2>We know you because of...</h2>
+                <ul class="signals">
+                    <li>What you search for, and how you spell it</li>
+                    <li>What time of night you're still online</li>
+                    <li>How long you hover before you click</li>
+                    <li>Which videos you didn't finish</li>
+                    <li>Where you are, roughly (we're working on exactly)</li>
+                    <li>Which ads you scroll past, and how fast</li>
+                </ul>
+
+                <p class="center" style="margin-top: 40px">
+                    <a class="btn btn-primary" href="interests.html">Interests &rarr;</a>
+                </p>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <p>&copy; 2026 Profilr Inc. (not a real company) &middot; a CART 211 project by Bovent Wu</p>
+        </footer>
+
+    </div>
+
+    <!-- FORCED COOKIES: both buttons say "Accept". Not working yet (needs JavaScript). -->
+    <aside class="cookie-banner box" aria-label="Cookie consent">
+        <p><strong>Your privacy is important to us.</strong> We only use cookies to improve your experience and guide you toward pleasures you've been unkwowingly craving.</p>
+        <div class="cookie-buttons">
+            <button type="button" class="btn btn-primary">Accept</button>
+            <button type="button" class="btn btn-outline">Accept</button>
+        </div>
+    </aside>
+
+    <!-- TRACKER: the numbers will count up with JavaScript later -->
+    <aside class="tracker" aria-label="Live data collection">Tracker*</aside>
+
+</body>
+</html>

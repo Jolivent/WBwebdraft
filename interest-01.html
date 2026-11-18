@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verdict 01 · Profilr</title>
+    <meta name="description" content="Because you like X, Profilr recommends Y">
+    <meta name="author" content="Bovent Wu">
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts: Chakra Petch (text) + Share Tech Mono (system text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- PROTOTYPE: only verdict 01 is built. Verdicts 02 to 06 use this same template.
+         Still to come: rating pop-up, locked Next button, getting more glitchy on every verdict. -->
+    <div id="wrapper">
+
+        <!-- HEADER: logo + main menu -->
+        <header class="site-header box">
+            <a class="logo" href="index.html">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#7C3AED"/>
+                            <stop offset="0.5" stop-color="#3B82F6"/>
+                            <stop offset="1" stop-color="#EC4899"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="32" height="32" rx="8" fill="url(#brand)"/>
+                    <path d="M5 16 C 9 9, 23 9, 27 16 C 23 23, 9 23, 5 16 Z" fill="#FFFFFF"/>
+                    <circle cx="16" cy="16" r="4.5" fill="#5B21B6"/>
+                </svg>
+                <span>Profilr</span>
+            </a>
+            <span class="signed-in">Signed in as: Bovent Wu</span>
+            <nav aria-label="Main menu">
+                <ul class="menu">
+                    <li><a href="index.html">Your profile</a></li>
+                    <li><a href="interests.html">Your interests</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <article>
+                <header>
+                    <p class="kicker">Verdict 01 of 06</p>
+                    <h1 class="verdict-title">Because you like X&hellip;</h1>
+                    <p>&hellip;we think you'll love this.</p>
+                </header>
+
+                <div class="split">
+                    <!-- LEFT: what I like -->
+                    <section class="box" aria-labelledby="liked-title">
+                        <p class="label" id="liked-title">Your interest</p>
+                        <figure>
+                            <img src="assets/like-01.jpg" alt="Team Fortress 2 poster with the Heavy" class="fit-top">
+                        </figure>
+                        <p class="thing-name">interest X*</p>
+                        <p class="muted">explanation*</p>
+                    </section>
+
+                    <p class="because" aria-hidden="true">so we recommend&hellip;<span>&rarr;</span></p>
+
+                    <!-- RIGHT: what Profilr recommends -->
+                    <section class="box" aria-labelledby="rec-title">
+                        <p class="label" id="rec-title">Recommended for you</p>
+                        <figure>
+                            <img src="assets/ad-01.jpg" alt="Ad for Paladins, a hero shooter" class="fit-top">
+                        </figure>
+                        <p class="thing-name">suggestion Y*</p>
+                        <p class="muted">Love X? You'll love <strong>Y</strong>: explanation*</p>
+                        <a class="btn btn-primary" href="#rating">Rate this suggestion</a>
+                    </section>
+                </div>
+
+                <!-- RATING: will become a pop-up (<dialog>) that picks 1 by itself -->
+                <section class="box rating" id="rating" aria-labelledby="rating-title">
+                    <h2 id="rating-title">How accurate was this suggestion?</h2>
+                    <fieldset class="scale">
+                        <legend class="muted">1 = no &middot; 5 = yes</legend>
+                        <label>1<input type="radio" name="rating" value="1" checked></label>
+                        <label>2<input type="radio" name="rating" value="2"></label>
+                        <label>3<input type="radio" name="rating" value="3"></label>
+                        <label>4<input type="radio" name="rating" value="4"></label>
+                        <label>5<input type="radio" name="rating" value="5"></label>
+                    </fieldset>
+                    <p><strong>Nope...</strong></p>
+                </section>
+
+                <!-- MY ANSWER: will only appear after rating -->
+                <section class="box reply" aria-labelledby="reply-title">
+                    <h2 id="reply-title">My rating <span class="my-rating">1 / 5</span></h2>
+                    <p class="verdict-line">Recommended: <del>Y</del> <ins>No thank you, i'll stick with X.</ins></p>
+                    <p>...</p>
+                    <p>...</p>
+                </section>
+
+                <!-- accuracy: static for now -->
+                <p class="meter-label"><span>Profile accuracy</span><span>84%</span></p>
+                <div class="meter-track"><div class="meter-fill" style="width: 84%"></div></div>
+
+                <nav class="pager" aria-label="Previous and next">
+                    <!-- you can't go back: this button stays locked -->
+                    <span class="btn btn-outline btn-locked">&larr; Your interests</span>
+                    <!-- verdicts 02-06 aren't built yet, so Next goes to the error page for now -->
+                    <a class="btn btn-primary" href="error.html">Next interest &rarr;</a>
+                </nav>
+            </article>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <p>&copy; 2026 Profilr Inc. (not a real company) &middot; a CART 211 project by Bovent Wu</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

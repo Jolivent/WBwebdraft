@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: profile could not be loaded</title>
+    <meta name="description" content="Profilr could not load this profile. Someone else is here instead.">
+    <meta name="author" content="Bovent Wu">
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts: Chakra Petch (text) + Share Tech Mono (system text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- PROTOTYPE: still to come: the header falling off, typing text, glitch background, lightning flash on the photo -->
+    <div id="wrapper">
+
+        <!-- HEADER: logo + main menu -->
+        <header class="site-header box">
+            <a class="logo" href="index.html">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#7C3AED"/>
+                            <stop offset="0.5" stop-color="#3B82F6"/>
+                            <stop offset="1" stop-color="#EC4899"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="32" height="32" rx="8" fill="url(#brand)"/>
+                    <path d="M5 16 C 9 9, 23 9, 27 16 C 23 23, 9 23, 5 16 Z" fill="#FFFFFF"/>
+                    <circle cx="16" cy="16" r="4.5" fill="#5B21B6"/>
+                </svg>
+                <span>Profilr</span>
+            </a>
+            <span class="signed-in">Signed in as: ERROR</span>
+            <nav aria-label="Main menu">
+                <ul class="menu">
+                    <li><a href="index.html">Your profile</a></li>
+                    <li><a href="interests.html">Your interests</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <p class="error-code">error text*</p>
+            <p class="error-sub">more error text*</p>
+
+            <h1 class="me-title">...</h1>
+            <p class="intro">insulting commentary*</p>
+
+            <div class="me-grid">
+                <section aria-labelledby="nac-title">
+                    <h2 id="nac-title">...</h2>
+                </section>
+
+                <figure class="photo">
+                    <img src="assets/me-lightning.jpg" alt="Photo of me, unimpressed, in front of a lightning storm" width="582" height="776">
+                    <figcaption>I&rsquo;m disappointed&hellip;</figcaption>
+                </figure>
+            </div>
+
+            <!-- the receipt page comes in the next version -->
+            <span class="btn btn-dark btn-locked">print my receipt &rarr;</span>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <p>&copy; 2026 Profilr Inc. (not a real company) &middot; a CART 211 project by Bovent Wu</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your interests · Profilr</title>
+    <meta name="description" content="Everything you love, in one place. Verified by Profilr.">
+    <meta name="author" content="Bovent Wu">
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts: Chakra Petch (text) + Share Tech Mono (system text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <!-- HEADER: logo + main menu -->
+        <header class="site-header box">
+            <a class="logo" href="index.html">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#7C3AED"/>
+                            <stop offset="0.5" stop-color="#3B82F6"/>
+                            <stop offset="1" stop-color="#EC4899"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="32" height="32" rx="8" fill="url(#brand)"/>
+                    <path d="M5 16 C 9 9, 23 9, 27 16 C 23 23, 9 23, 5 16 Z" fill="#FFFFFF"/>
+                    <circle cx="16" cy="16" r="4.5" fill="#5B21B6"/>
+                </svg>
+                <span>Profilr</span>
+            </a>
+            <span class="signed-in">Signed in as: Bovent Wu</span>
+            <nav aria-label="Main menu">
+                <ul class="menu">
+                    <li><a href="index.html">Your profile</a></li>
+                    <li><a href="interests.html" aria-current="page">Your interests</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <header>
+                <p class="kicker">X interests &middot; accuracy Y%</p>
+                <h1>Your interests</h1>
+                <p class="intro">explaining/describing gallery below*</p>
+            </header>
+
+            <!-- GALLERY: g1 to g6 place each picture in the grid (see section 7 of styles.css) -->
+            <section class="gallery" aria-label="Gallery of your interests">
+                <figure class="g1">
+                    <img src="assets/like-01.jpg" alt="Team Fortress 2 poster with the Heavy" class="fit-top">
+                    <figcaption>Shooter Games</figcaption>
+                </figure>
+                <figure class="g2">
+                    <img src="assets/like-02.jpg" alt="Zenless Zone Zero key art with the main characters">
+                    <figcaption>Gacha Games</figcaption>
+                </figure>
+                <figure class="g3">
+                    <img src="assets/like-03.jpg" alt="Pokémon Trading Card Game Live logo">
+                    <figcaption>Turn-based Games</figcaption>
+                </figure>
+                <figure class="g4">
+                    <img src="assets/like-04.jpg" alt="A doorway pull-up bar" class="fit-contain">
+                    <figcaption>Exercising at Home</figcaption>
+                </figure>
+                <figure class="g5">
+                    <img src="assets/like-05.jpg" alt="Video thumbnail of a pupfish with the words Shouldn't exist">
+                    <figcaption>Marine Biology</figcaption>
+                </figure>
+                <figure class="g6">
+                    <img src="assets/like-06.jpg" alt="Aseprite pixel art drawing program cover" class="fit-top">
+                    <figcaption>Drawing Digitally</figcaption>
+                </figure>
+            </section>
+
+            <p class="center">
+                <a class="btn btn-primary" href="interest-01.html">Verdict &rarr;</a>
+            </p>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <p>&copy; 2026 Profilr Inc. (not a real company) &middot; a CART 211 project by Bovent Wu</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

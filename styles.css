@@ -1,0 +1,551 @@
+/* =========================================================
+   WRONG AUDIENCE · prototype (step 3) · styles.css
+   Bovent Wu · CART 211
+
+   This is an EARLY version:
+   - layout is not final
+   - not responsive yet (built for a desktop screen only)
+   - interactions (cookie banner, rating pop-up, tracker) are drawn but don't work yet
+   ========================================================= */
+
+
+/* ---------- 1. COLOURS + FONTS ---------- */
+:root {
+    --ground: #F5F6FA;      /* page background */
+    --black: #000000;       /* boxes */
+    --ink: #111827;         /* text on the page */
+    --muted: #4B5563;       /* grey text on the page */
+    --muted-dark: #A1A1AA;  /* grey text inside black boxes */
+    --purple: #A78BFA;      /* purple text inside black boxes */
+    --pink: #EC4899;
+    --red: #E11D48;
+
+    /* Profilr's brand gradient: purple → blue → pink */
+    --brand: linear-gradient(120deg, #7C3AED 0%, #3B82F6 50%, #EC4899 100%);
+
+    /* soft purple shadow under every black box */
+    --shadow: 0 12px 28px rgba(124, 58, 237, 0.3);
+
+    --sans: "Chakra Petch", "Segoe UI", sans-serif;
+    --mono: "Share Tech Mono", Consolas, monospace;
+}
+
+
+/* ---------- 2. BASE ---------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--ground);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    /* keeps the picture's proportions */
+    height: auto;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    margin: 0 0 0.5em;
+}
+
+/* fixed width for now: the responsive version comes later */
+#wrapper {
+    width: 1120px;
+    margin: 0 auto;
+}
+
+main {
+    padding: 40px 0 80px;
+}
+
+
+/* ---------- 3. BLACK BOXES ---------- */
+/* every "card" on the site is a black box with a purple shadow */
+.box {
+    background: var(--black);
+    color: #FFFFFF;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+}
+
+.box .muted {
+    color: var(--muted-dark);
+}
+
+.label {
+    font: 0.85rem var(--mono);
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 8px;
+}
+
+
+/* ---------- 4. HEADER + NAVIGATION ---------- */
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 24px;
+    padding: 12px 20px;
+    border-radius: 16px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.35rem;
+}
+
+.logo svg {
+    width: 34px;
+    height: 34px;
+}
+
+.signed-in {
+    font-size: 0.8rem;
+    color: var(--muted-dark);
+    margin-right: auto;
+}
+
+.menu {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    display: block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.menu a:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* the page you're on */
+.menu a[aria-current="page"] {
+    background: var(--brand);
+}
+
+
+/* ---------- 5. BUTTONS ---------- */
+.btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    font: 600 1rem var(--sans);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--brand);
+    color: #FFFFFF;
+}
+
+.btn-outline {
+    background: var(--black);
+    border-color: var(--purple);
+    color: var(--purple);
+}
+
+.btn-dark {
+    background: #1F1A17;
+    color: #FFFFFF;
+}
+
+/* buttons that are locked (greyed out + blurred) */
+.btn-locked {
+    opacity: 0.45;
+    filter: grayscale(1) blur(1.5px);
+    cursor: not-allowed;
+}
+
+.center {
+    text-align: center;
+}
+
+
+/* ---------- 6. HOME ---------- */
+.hero {
+    max-width: 760px;
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    font-size: 3.4rem;
+}
+
+.hero p,
+.intro {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 760px;
+}
+
+/* profile card: picture on the left, details on the right */
+.profile {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    margin-bottom: 56px;
+}
+
+.profile img {
+    border-radius: 16px;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 28px;
+    margin: 0 0 24px;
+}
+
+.facts div {
+    border-bottom: 1px solid #333333;
+    padding-bottom: 8px;
+}
+
+.facts dt {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted-dark);
+}
+
+.facts dd {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* accuracy bar (static for now: will be animated with JavaScript later) */
+.meter-label {
+    display: flex;
+    justify-content: space-between;
+    font: 0.85rem var(--mono);
+    margin: 0 0 6px;
+}
+
+.meter-track {
+    height: 12px;
+    border-radius: 6px;
+    background: #D1D5DB;
+    overflow: hidden;
+}
+
+.box .meter-track {
+    background: #333333;
+}
+
+.meter-fill {
+    height: 100%;
+    background: var(--brand);
+}
+
+/* three promises (may become a triforce later) */
+.promises {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 28px 0 48px;
+}
+
+.promises h3 {
+    color: var(--purple);
+}
+
+.promises p {
+    margin: 0;
+    color: var(--muted-dark);
+}
+
+.signals li {
+    margin-bottom: 6px;
+}
+
+/* cookie box: drawn, not working yet */
+.cookie-banner {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 420px;
+    padding: 22px;
+}
+
+.cookie-banner p {
+    margin: 0 0 14px;
+    font-size: 0.92rem;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.cookie-buttons .btn {
+    flex: 1;
+}
+
+/* tracker: drawn, numbers don't count yet */
+.tracker {
+    position: fixed;
+    left: 16px;
+    bottom: 16px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(17, 24, 39, 0.88);
+    color: #FFFFFF;
+    font: 0.75rem var(--mono);
+}
+
+
+/* ---------- 7. INTERESTS GALLERY ---------- */
+/* 3 columns of small rows, so each picture can be a different height */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(14, 40px);
+    gap: 14px;
+    margin: 28px 0 36px;
+}
+
+.gallery figure {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #FFFFFF;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* simple hover: the picture zooms in a little */
+.gallery figure:hover img {
+    transform: scale(1.05);
+}
+
+.gallery figcaption {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: rgba(17, 24, 39, 0.85);
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+/* where each picture sits */
+.g1 { grid-column: 1;     grid-row: 1 / 5; }
+.g2 { grid-column: 2 / 4; grid-row: 1 / 7; }
+.g3 { grid-column: 1;     grid-row: 5 / 15; }
+.g4 { grid-column: 2;     grid-row: 7 / 15; }
+.g5 { grid-column: 3;     grid-row: 7 / 11; }
+.g6 { grid-column: 3;     grid-row: 11 / 15; }
+
+/* posters keep their top; products show the whole picture */
+.fit-top {
+    object-position: top;
+}
+
+.gallery img.fit-contain {
+    object-fit: contain;
+}
+
+
+/* ---------- 8. VERDICT PAGE ---------- */
+.kicker {
+    font: 0.85rem var(--mono);
+    color: #5B21B6;
+    margin: 0 0 8px;
+}
+
+.verdict-title {
+    font-size: 3rem;
+    /* first try at the glitch: red / blue split */
+    text-shadow: 2px 0 var(--red), -2px 0 #0891B2;
+}
+
+/* interest | arrow | recommendation */
+.split {
+    display: grid;
+    grid-template-columns: 1fr 120px 1fr;
+    gap: 24px;
+    align-items: center;
+    margin: 32px 0;
+}
+
+.split figure {
+    margin: 0 0 16px;
+}
+
+.split img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.thing-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+
+.because {
+    text-align: center;
+    font: 1rem var(--mono);
+    color: var(--black);
+}
+
+.because span {
+    display: block;
+    font-size: 2.2rem;
+    color: #7C3AED;
+}
+
+/* rating: the pop-up isn't built yet, so the scale is shown in the page */
+.rating {
+    margin-bottom: 28px;
+}
+
+.scale {
+    display: flex;
+    justify-content: space-between;
+    max-width: 420px;
+    border: 0;
+    padding: 0;
+    margin: 16px 0;
+}
+
+.scale label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* the browser's own radio buttons, coloured red */
+.scale input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--red);
+}
+
+.reply {
+    margin-bottom: 28px;
+}
+
+.my-rating {
+    font: 0.85rem var(--mono);
+    background: var(--red);
+    padding: 2px 10px;
+    border-radius: 6px;
+    margin-left: 8px;
+}
+
+/* <del> crosses out the guess, <ins> writes in the truth */
+.verdict-line del {
+    color: var(--muted-dark);
+    text-decoration-color: var(--red);
+    text-decoration-thickness: 3px;
+}
+
+.verdict-line ins {
+    font-weight: 700;
+    text-decoration-color: var(--pink);
+    text-decoration-thickness: 3px;
+}
+
+.pager {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+
+
+/* ---------- 9. ERROR PAGE ---------- */
+.error-code {
+    font: 1.6rem var(--mono);
+    margin: 40px 0 6px;
+}
+
+.error-sub {
+    font: 0.9rem var(--mono);
+    color: var(--muted);
+    margin: 0 0 32px;
+}
+
+.me-title {
+    font-size: 3.6rem;
+}
+
+.me-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin: 32px 0;
+}
+
+.me-grid h2 {
+    color: #BE185D;
+}
+
+.me-grid li {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+}
+
+.photo {
+    margin: 0;
+}
+
+.photo img {
+    box-shadow: var(--shadow);
+}
+
+.photo figcaption {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+
+/* ---------- 10. FOOTER ---------- */
+.site-footer {
+    padding: 20px 0 22px;
+    border-top: 1px solid #D1D5DB;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: right;
+}
